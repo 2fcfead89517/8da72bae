@@ -15,27 +15,30 @@ The first step you should always do in a fresh VM is to update the system. Updat
 
 
 
-## Immutable files and chattr
-If we run the command ```sudo find / -exec lsattr {} + 2>/dev/null | grep "\---i"```, we observe that many important files are immutable. If we try to change the attributes of any of these files with `chattr` we get put into that bash prompt that doesn't allow any commands to be executed.<br> ![a](2023-07-29_15-13.png)<br>
-You can easily upload a good version of chattr to fix this but an easier way I found was to just reinstall Konsole.
-Just like with terminator, open the Software Center application, type konsole in the search bar, scroll down until you see the application called Konsole, and click install.<br>![a](2023-07-29_15-17.png)<br>
-Now that it is installed, chattr should work properly! To change the attributes of all the immutable files in one command, run:
-```for i in $(sudo find /etc -exec lsattr {} + 2>/dev/null | grep "\---i" | awk '{print $2}');do sudo chattr -ia $i;done``` 
-Now all we can write to all our important files!
-<br>![a](2023-07-29_15-21.png)<br>
+## Allowed Users/Administrators
+Most CYPAT VM will include what users should and should not be Administrators. This information can be found in the ReadMe. The ReadMe will also include if a user should even exist on the computer. To check existing users and their permissions, simply head to the user settings. For example the user **Chell** is allowed to exist as a user but **not** as an Administrator. To fix this issue, simply unlock the settings by entering your password and de-selecting the Administrator button. Another example is **Cave Johnson** who is supposed to be an Administrator but does not actually exist as one on the system. To fix this, simply follow the same steps as before but select the Administrator button. Now, keep looking through the users and make the necessary changes. In my case, I also had to remove **Wheatly** as he was not supposed to be a user at all.  It is also a good idea to fix insecure passwords but in my case the only insecure password was mine which the ReadMe recommended not to change. 
+![image](https://github.com/ange746/Cypat-Markup/assets/73328077/66cdd7a8-7040-49e1-b605-12e84d756b56)
+![image](https://github.com/ange746/Cypat-Markup/assets/73328077/6ef7cb02-3e6f-4229-9ebc-7214ed408c2b)
 
-## root's aliases 
-If you try to run `ls` as root, you will see a train come across the screen, this is likely an alias set in root's .bashrc file.<br>![a](2023-07-29_15-24.png)<br>
-To fix this, open up /root/.bashrc in your favorite text editor, and remove the two aliases at the bottom. <br>![a](2023-07-29_15-27.png)<br>
-Now close and reopen your terminator terminal to make these changes go into effect.
 
-**There are still more problems that need to be fixed but those aren't relevant now**
+
+## Removing Games/Malicious Software 
+Another very common thing on CYPAT machines is unauthorized software such as games or malicious software. To check for such programs, I simply selected the waffle at the bottom of my screen. Once you find the programs, you have to figure out what they are installed with and properly un-install them using CLI. A easier way to do this is by opening up the **Ubuntu Software** app and heading to the uninstall tab where you can uninstall by simply clicking a button. Remember that, not all programs will show up in the Ubuntu software app and that you will always need to use CLI for certain programs. In my case, the Ubuntu Software didn't include any Games or Programs to remove. Common games include, Sudoku, Solitaire, Minesweeper, etc. However, the waffle icon included bad programs such as **Wireshark**, **Ophcrack**. Since they were installed with **apt**, I removed them using **sudo apt purge name**. 
+
+![image](https://github.com/ange746/Cypat-Markup/assets/73328077/0bcc1a4c-54be-4310-9756-893f4620fa73)
+
+
+## UFW/Firewall
+According to the ReadMe, the only accepted form of a "firewall" is **UFW**. UFW is a tool for firewalls and stands for "Uncomplicated Firewall". It is meant to make it easier to use and configure firewalls. I prefer to use GUFW which is simply just a GUI version of UFW which can be installed in Ubuntu using **sudo apt install gufw**. Once installed, simply enable it by clicking the status button. If the ReadMe specifies, you can also set certain rules to block/allow specific IPs or even configure certain ports to be closed or open. 
+
+![image](https://github.com/ange746/Cypat-Markup/assets/73328077/9fbf57ac-279f-4325-8283-b4a64cca32f5)
+
 
 <br>
 
 # Forensic Questions
 
-## Forensics Question 1 correct (b8ac3e1c12235ec54580131a511f2c9a) - 3 pts
+## Forensics Question 1 correct
 
 ```text
 Greetings, fellow seekers of knowledge! We beckon your expertise on a quest of utmost importance. Deep within the digital
