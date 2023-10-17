@@ -33,6 +33,12 @@ According to the ReadMe, the only accepted form of a "firewall" is **UFW**. UFW 
 
 ![image](https://github.com/ange746/Cypat-Markup/assets/73328077/9fbf57ac-279f-4325-8283-b4a64cca32f5)
 
+## Adding User to Group
+The ReadMe stated that I had to add the user **caroline** to the aperturestaff group. To do this, I simply typed in the command **sudo usermod -aG aperturestaff caroline**. I also needed to add the user **chell** to the group **testsubjects** which I did by also typing **sudo usermod -aG testsubjects chell**. After doing this, I got points for it. 
+
+## SSH Configuration
+To correctly configure the SSH to the policy standards, I first edited the SSH configuration file located at **/etc/ssh/sshd_config** and changed the port from 22 to 1382. I also disabled root login by changing the line **PermitRootLogin** to no. Enabling this can cause big security flaws and issues and is not recommended. I also then typed in **systemctl restart ssh.service** which gained me some more points. 
+
 
 <br>
 
