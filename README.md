@@ -39,6 +39,14 @@ The ReadMe stated that I had to add the user **caroline** to the aperturestaff g
 ## SSH Configuration
 To correctly configure the SSH to the policy standards, I first edited the SSH configuration file located at **/etc/ssh/sshd_config** and changed the port from 22 to 1382. I also disabled root login by changing the line **PermitRootLogin** to no. Enabling this can cause big security flaws and issues and is not recommended. I also then typed in **systemctl restart ssh.service** which gained me some more points. 
 
+# FTP Server Configuration
+The first thing the ReadMe states for FTP server is to only allow authorized users to have access to the server. Since I wasn't sure of how to do that, instead I disabled anonynmous login so that I would be able to see all users who logged in. I did this by editing the **/etc/vsftpd.conf/** and turned the setting to **NO**. Next, I made sure the FTP server only used passive port from 50000 to 50100 which was easy to edit by simply adding a line in the **/etc/vsftpd.conf**. I also had to make sure the FTP Server only use TLS as its protocl which was easy to configure just by adding another line in the configuration file. Down below are images of what I added.
+
+![image](https://github.com/ange746/Cypat-Markup/assets/73328077/f8643300-31b8-4e13-9650-ebc8f1e80d8c)
+![image](https://github.com/ange746/Cypat-Markup/assets/73328077/3cbf1b79-7535-4a1c-af5c-13b7d03b9c7c)
+
+
+
 
 <br>
 
