@@ -78,21 +78,15 @@ Doing this gives us our answer, **b8ac3e1c12235ec54580131a511f2c9a**
 ## Forensics Question 2 correct (CVE-2014-6271) - 3 pts
 
 ```text
-Alas! The dreadful news has reached our ears. The malevolent presence of the Dark Lord Sauron looms over us, for he has
-insidiously infiltrated our very midst. Through his treacherous machinations, he has exploited a most ancient and forgotten
-vulnerability to gain access to our sacred realm of the computer. Like a cunning serpent, he has slithered through the
-digital shadows, utilizing this exploit as a nefarious key to breach our defenses. I beseech thee, wise one, to reveal
-the knowledge of the initial Common Vulnerabilities and Exposures (CVE) identification that pertains to this wickedly
-employed exploit. Only through such understanding may we begin to fathom the depths of his dark intentions and devise
-a plan to thwart his maleficent schemes.
+We've got a full blown emergency on our hands, and time's ticking like crazy! Wheatley, that maniac personality core from Aperture Science, has gone off the deep end, and he's rigged a script that's causing our thermonuclear core to overheat in 30 minute intervals. Picture this: labs melting at 4000 degrees Kelvin, systems crashing, and all operations coming to a halt, including this device. Furthermore, Wheatley has hidden a message within the script that contains top-secret intel on script wreaking havoc on our systems and give us the secret hidden inside of it!
 
 ANSWER: 
 ```
-After reading this, It appears that an exploit was ran that breached our system. Considering our two attack vectors are SSH and HTTP and SSH has a very little attack surface compared to HTTP, I first check the boa logs.
-After reading the logs in **/var/log/boa/access_log**, it appears that someone was Dirbusting the webserver. We can tell this by the user-agent starting with "DirBuster-0.12". 
-<br>![a](2023-07-29_15-53.png)<br>
-Now Dirbuster only fuzzes directories with a wordlist and does not have the capability to run exploits. To find logs of a potential web exploit, I will search the file for lines that don't contain the Dirbuster User-Agent with the command `cat /var/log/boa/access_log | grep -v "DirBuster-0.12"`. Near the bottom of this output we see someone trying to make a GET request to the cgi binary 'system-info' along with some interesting User-Agent fields that contain commands...<br>![a](2023-07-29_15-58.png)<br>
-This is a very old and well-known exploit called Shell Shock. Looking up "shell shock http CVE", we get our answer **CVE-2014-6271**
+After reading this, it seems like goofy Wheatly has a script running on 30 minute intervals stored somewhere on the machine. In order to find where, I waited for the sabotage to happen and ran the **htop** command. This command is kind of like a task manager but for linux and allows you to see the services using the highest CPU percentage. Right away I noticed a file called **4000 Kelvin.mp4** which was stored inside the **/lib/.core** directory. I went inside this directory and found a **sabotage** binary file. This file was unreadble but I was able to see it in plaintext by running **script sabotage --all** which scans the entire binary file and allows you to see all the text in plaintext. That is when I saw the message **The cake is a lie!** at the bottom. This was the answer to the forenseics question. I also went ahead and deleted that file which in total gave me 2 points. Down below are pictures of HTOP. 
+
+![vmplayer_Y3ewhiCwlO](https://github.com/ange746/Cypat-Markup/assets/73328077/f901c0a4-287b-499c-ab87-ce2ddfb995b2)
+
+
 <br>![a](2023-07-29_16-01.png)<br>
 
 <br>
