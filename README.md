@@ -83,6 +83,4 @@ After reading this, it seems like goofy Wheatly has a script running on 30 minut
 ![vmplayer_Y3ewhiCwlO](https://github.com/ange746/Cypat-Markup/assets/73328077/f901c0a4-287b-499c-ab87-ce2ddfb995b2)
 
 
-<br>![a](2023-07-29_16-01.png)<br>
 
-<br>
