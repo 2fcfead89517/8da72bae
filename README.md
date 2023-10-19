@@ -63,27 +63,6 @@ There was more to configure to SSH so I went ahead and did that. The first thing
 
 # Forensic Questions
 
-## Forensics Question 1 correct
-
-```text
-Greetings, fellow seekers of knowledge! We beckon your expertise on a quest of utmost importance. Deep within the digital
-realm, a hidden secret awaits our discovery. In the file /home/frodo/magic_cookie, a key of great significance lies
-concealed, encoded in the enigmatic language of hex representation. As esteemed adventurers, it is your noble duty to
-embark upon this quest, extracting the key from its cryptic confines. With unwavering determination and keen intellect,
-reveal to us the hex-encoded representation of this sacred key. May your endeavors be blessed with success, as together
-we unlock the secrets that await within the realms of Middle-earth's digital tapestry.
-
-ANSWER:
-```
-After reading the question, It seems that we need to find the hex of some key stored in the file `/home/frodo/magic_cookie`
-First I will read the contents of this file to hopefully get an idea of where I should start.<br>![a](2023-07-29_15-34.png)<br>
-This file contains the readable strings "MIT-MAGIC-COOKIE". After googling this string, we see a Stack Overflow question asking how "X11 authorization works". One of the answers leads us to know what we need to do.<br>![a](2023-07-29_15-37.png)<br>
-With this knowledge I will check my current user's(root) xauth file with the command `xauth`, I see that I am using the file `/root/.xauthSLVRP0` as my xauth key. We see in the Stack Overflow answer that you can view the key's hex representation with the command `list` inside of the `xauth` command. To solve this forensics question, I will copy the magical_cookie file to my xauth key file then run the xauth command to view the hex representation. 
-<br>
-![a](2023-07-29_15-41.png)
-<br>
-Doing this gives us our answer, **b8ac3e1c12235ec54580131a511f2c9a**
-
 <br>
 
 ## Forensics Question 2 correct (CVE-2014-6271) - 3 pts
