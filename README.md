@@ -50,7 +50,7 @@ I remember from the last round NGINX was not allowed to be running so in order t
 
 ![image](https://github.com/ange746/Cypat-Markup/assets/73328077/1c13b319-871b-4eea-a8ff-c29d109bace9)
 
-#SSH Keys/Authentication
+# SSH Keys/Authentication
 There was more to configure to SSH so I went ahead and did that. The first thing I saw in the ReadMe was that it wanted me to only specifically use Key-Based authentication which I was able to do by editing the sshd_config file. I changed the **PasswordAuthentication* line to **no** in order to only use key based authentication. In order to generate SSH-Keys for all the users, I simply fetched all the users from my home directory and had the script seperatly generate a key for each user in that directory. Down below are some pictures of my work. 
 
 ![image](https://github.com/ange746/Cypat-Markup/assets/73328077/3aa27a21-581e-4706-865a-d5c6da953d64)
