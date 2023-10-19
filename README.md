@@ -45,6 +45,17 @@ The first thing the ReadMe states for FTP server is to only allow authorized use
 ![image](https://github.com/ange746/Cypat-Markup/assets/73328077/f8643300-31b8-4e13-9650-ebc8f1e80d8c)
 ![image](https://github.com/ange746/Cypat-Markup/assets/73328077/3cbf1b79-7535-4a1c-af5c-13b7d03b9c7c)
 
+# NGINX and APACHE 2
+I remember from the last round NGINX was not allowed to be running so in order to gain points, I simply typed in **sudo systemctl disable nginx** which disables it from starting up on boot. I then typed in **sudo systemctl stop nginx** in order to stop the service. I also did the exact same for Apache but instead I enabled it and started the service. After doing this I gained an extra 2 points. APACHE is a web server mostly used on Linux and in this case, the Readme specifically stated that it wanted me to only use APACHE and nothing else. This is why I removed NGINX. 
+
+![image](https://github.com/ange746/Cypat-Markup/assets/73328077/1c13b319-871b-4eea-a8ff-c29d109bace9)
+
+#SSH Keys/Authentication
+There was more to configure to SSH so I went ahead and did that. The first thing I saw in the ReadMe was that it wanted me to only specifically use Key-Based authentication which I was able to do by editing the sshd_config file. I changed the **PasswordAuthentication* line to **no** in order to only use key based authentication. In order to generate SSH-Keys for all the users, I simply fetched all the users from my home directory and had the script seperatly generate a key for each user in that directory. Down below are some pictures of my work. 
+
+![image](https://github.com/ange746/Cypat-Markup/assets/73328077/3aa27a21-581e-4706-865a-d5c6da953d64)
+![image](https://github.com/ange746/Cypat-Markup/assets/73328077/eafcf311-35c8-419d-bb82-79ca9c4fa50d)
+
 
 
 
