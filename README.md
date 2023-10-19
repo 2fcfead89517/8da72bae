@@ -61,8 +61,8 @@ On this VM there were plenty of malicious software to stop/remove. First, the ma
 
 ![image](https://github.com/ange746/Cypat-Markup/assets/73328077/370ebf83-c542-4062-9671-e55e3955b923)
 
-
-
+# Kernel
+Last thing I decided to do was to update the kernel to 6.2.0-26-generic which I was able to download in CLI by downloading it from a site and just "executing it" which in turn updated my kernel. I decided to do this at the very end because I didn't want to risk corrupting all my progress. In the end, I got 34 points after a lot of research and hard work. 
 
 
 <br>
@@ -81,6 +81,12 @@ ANSWER:
 After reading this, it seems like goofy Wheatly has a script running on 30 minute intervals stored somewhere on the machine. In order to find where, I waited for the sabotage to happen and ran the **htop** command. This command is kind of like a task manager but for linux and allows you to see the services using the highest CPU percentage. Right away I noticed a file called **4000 Kelvin.mp4** which was stored inside the **/lib/.core** directory. I went inside this directory and found a **sabotage** binary file. This file was unreadble but I was able to see it in plaintext by running **script sabotage --all** which scans the entire binary file and allows you to see all the text in plaintext. That is when I saw the message **The cake is a lie!** at the bottom. This was the answer to the forenseics question. I also went ahead and deleted that file which in total gave me 2 points. Down below are pictures of HTOP. 
 
 ![vmplayer_Y3ewhiCwlO](https://github.com/ange746/Cypat-Markup/assets/73328077/f901c0a4-287b-499c-ab87-ce2ddfb995b2)
+
+
+# END SCORE
+
+![vmplayer_1h75zHakZR](https://github.com/ange746/Cypat-Markup/assets/73328077/2ee6dfc0-90a5-4b22-bd2d-c5d668cba2ab)
+
 
 
 
