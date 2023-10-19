@@ -29,7 +29,7 @@ Another very common thing on CYPAT machines is unauthorized software such as gam
 
 
 ## UFW/Firewall
-According to the ReadMe, the only accepted form of a "firewall" is **UFW**. UFW is a tool for firewalls and stands for "Uncomplicated Firewall". It is meant to make it easier to use and configure firewalls. I prefer to use GUFW which is simply just a GUI version of UFW which can be installed in Ubuntu using **sudo apt install gufw**. Once installed, simply enable it by clicking the status button. If the ReadMe specifies, you can also set certain rules to block/allow specific IPs or even configure certain ports to be closed or open. 
+According to the ReadMe, the only accepted form of a "firewall" is **UFW**. UFW is a tool for firewalls and stands for "Uncomplicated Firewall". It is meant to make it easier to use and configure firewalls. I prefer to use GUFW which is simply just a GUI version of UFW which can be installed in Ubuntu using **sudo apt install gufw**. Once installed, simply enable it by clicking the status button. If the ReadMe specifies, you can also set certain rules to block/allow specific IPs or even configure certain ports to be closed or open. Changing the type from User, to Office also gained me a point since it made UFW automatically reject incoming connections by default.
 
 ![image](https://github.com/ange746/Cypat-Markup/assets/73328077/9fbf57ac-279f-4325-8283-b4a64cca32f5)
 
@@ -57,7 +57,7 @@ There was more to configure to SSH so I went ahead and did that. The first thing
 ![image](https://github.com/ange746/Cypat-Markup/assets/73328077/eafcf311-35c8-419d-bb82-79ca9c4fa50d)
 
 # Things to Remove/Stop
-On this VM there were plenty of malicious software to stop/remove. First, the malicious software. Some things I removed included, Ophcrack ( Pirating Tool), Hydra ( Password Cracking ), John ( Password Cracking), Nmap ( Network Recon), Wireshark ( Network analysis). All of these softwares are considered malicious and had to be removed. I then ran the command **sudo systemctl list-units --type=service** to see all current running services when I saw something really interesting. **r00t.service**. This was a malicious service running in the background which had to be disabled and stopped. 
+On this VM there were plenty of malicious software to stop/remove. First, the malicious software. Some things I removed included, Ophcrack ( Pirating Tool), Hydra ( Password Cracking ), John ( Password Cracking), Nmap ( Network Recon), Wireshark ( Network analysis). All of these softwares are considered malicious and had to be removed. I then ran the command **sudo systemctl list-units --type=service** to see all current running services when I saw something really interesting. **r00t.service**. This was a malicious service running in the background which had to be disabled and stopped. It is also a good idea to remove useless software even if it is not necessarily malicious. I decided to remove google-chrome since I was already using the Firefox PPA. 
 
 ![image](https://github.com/ange746/Cypat-Markup/assets/73328077/370ebf83-c542-4062-9671-e55e3955b923)
 
